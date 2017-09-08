@@ -1,6 +1,16 @@
 <template>
-    <b-modal :id="'set-fields-' + station.id" ref="setFields" :title="$t('stations.setFields.title', {stationName: station.name})">
-        <b-form @submit="onSubmit">
+    <b-modal :id="'set-fields-' + station.id" ref="setFields"
+             :title="$t('stations.setFields.title', {stationName: station.stationName})">
+        <b-form @submit.stop.prevent="onSubmit">
+            <b-form-group id="playerNameInputGroup"
+                          label-for="playerNameInput"
+                          :label="$t('stations.setFields.playerName.label')"
+                          :description="$t('stations.setFields.playerName.description')">
+                <b-form-input type="text"
+                              id="playerNameInput"
+                              :placeholder="$t('stations.setFields.playerName.placeholder')"
+                              v-model="playerName"></b-form-input>
+            </b-form-group>
             <b-form-group id="consoleSelectGroup"
                           label-for="consoleSelect"
                           :label="$t('stations.setFields.currentConsole.label')"
@@ -34,6 +44,7 @@
                         text: opt
                     };
                 }),
+                playerName: this.station.playerName,
                 currentConsole: this.station.currentConsole,
                 currentGame: this.station.currentGame
             };

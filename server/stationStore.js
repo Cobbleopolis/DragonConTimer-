@@ -7,9 +7,10 @@ function init() {
     config.get('stations').map(stationObj =>
         new Station(
             stationObj.id,
-            stationObj.name,
+            stationObj.stationName,
             stationObj.status,
             stationObj.consoleOptions,
+            stationObj.playerName,
             stationObj.currentConsole,
             stationObj.currentGame
         )

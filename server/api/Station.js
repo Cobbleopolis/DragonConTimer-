@@ -2,11 +2,12 @@ const StationStatus = require('./StationStatus');
 
 module.exports = class Station {
 
-    constructor(id, name, status, consoleOptions, currentConsole, currentGame) {
+    constructor(id, stationName, status, consoleOptions, playerName, currentConsole, currentGame) {
         this.id = id;
-        this.name = name;
+        this.stationName = stationName || id;
         this.status = status || StationStatus.DEFAULT;
         this.consoleOptions = consoleOptions || [];
+        this.playerName = playerName;
         this.currentConsole = currentConsole || '';
         this.currentGame = currentGame || '';
     }

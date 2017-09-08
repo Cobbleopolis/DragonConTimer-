@@ -21,6 +21,11 @@ export default {
             },
             setFields: {
                 title: 'Set Fields: {stationName}',
+                playerName: {
+                    label: 'Player Name',
+                    placeholder: 'Enter Player Name',
+                    description: 'The name of the person playing'
+                },
                 currentConsole: {
                     label: 'Current Console',
                     description: 'The console currently being played'
