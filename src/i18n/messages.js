@@ -26,22 +26,24 @@ export default {
                 title: 'Actions',
                 setFields: 'Set Fields'
             },
-            setFields: {
-                title: 'Set Fields: {stationName}',
+            fields: {
                 playerName: {
-                    label: 'Player Name',
+                    label: 'Name',
                     placeholder: 'Enter Player Name',
                     description: 'The name of the person playing'
                 },
                 currentConsole: {
-                    label: 'Current Console',
+                    label: 'Console',
                     description: 'The console currently being played'
                 },
                 currentGame: {
-                    label: 'Current Game',
+                    label: 'Game',
                     placeholder: 'Enter Game',
                     description: 'The game currently being played'
                 }
+            },
+            setFields: {
+                title: 'Set Fields: {stationName}'
             }
         }
     }

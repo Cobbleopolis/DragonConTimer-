@@ -8,28 +8,28 @@
 
             <b-form-group id="playerNameInputGroup"
                           label-for="playerNameInput"
-                          :label="$t('stations.setFields.playerName.label')"
-                          :description="$t('stations.setFields.playerName.description')">
+                          :label="$t('stations.fields.playerName.label')"
+                          :description="$t('stations.fields.playerName.description')">
                 <b-form-input type="text"
                               id="playerNameInput"
-                              :placeholder="$t('stations.setFields.playerName.placeholder')"
+                              :placeholder="$t('stations.fields.playerName.placeholder')"
                               v-model="playerName"></b-form-input>
             </b-form-group>
             <b-form-group id="consoleSelectGroup"
                           label-for="consoleSelect"
-                          :label="$t('stations.setFields.currentConsole.label')"
-                          :description="$t('stations.setFields.currentConsole.description')">
+                          :label="$t('stations.fields.currentConsole.label')"
+                          :description="$t('stations.fields.currentConsole.description')">
                 <b-form-select id="consoleSelect"
                                :options="consoleOptions"
                                v-model="currentConsole"></b-form-select>
             </b-form-group>
             <b-form-group id="consoleGameGroup"
                           label-for="currentGame"
-                          :label="$t('stations.setFields.currentGame.label')"
-                          :description="$t('stations.setFields.currentGame.description')">
+                          :label="$t('stations.fields.currentGame.label')"
+                          :description="$t('stations.fields.currentGame.description')">
                 <b-form-input type="text"
                               id="currentGame"
-                              :placeholder="$t('stations.setFields.currentGame.placeholder')"
+                              :placeholder="$t('stations.fields.currentGame.placeholder')"
                               v-model="currentGame"></b-form-input>
             </b-form-group>
             <template slot="modal-footer">
