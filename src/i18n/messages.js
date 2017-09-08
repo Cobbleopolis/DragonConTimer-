@@ -13,6 +13,11 @@ export default {
                 connected: "Connected",
                 disconnected: "Disconnected"
             }
+        },
+        station: {
+            actions: {
+                title: "Actions"
+            }
         }
     }
 }
