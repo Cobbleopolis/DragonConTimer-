@@ -24,6 +24,17 @@ const mutations = {
             payload.forEach(addStation);
         else
             addStation(payload)
+    },
+    SOCKET_UPDATE_STATION_FIELDS(state, updateFieldsData) {
+        if (updateFieldsData) {
+            const existingStation = findExistingStation(state.stations, updateFieldsData);
+            if (existingStation) {
+                existingStation.station.playerName = updateFieldsData.playerName;
+                existingStation.station.currentConsole = updateFieldsData.currentConsole;
+                existingStation.station.currentGame = updateFieldsData.currentGame;
+                state.stations.splice(existingStation.index, 1, existingStation.station)
+            }
+        }
     }
 };
 

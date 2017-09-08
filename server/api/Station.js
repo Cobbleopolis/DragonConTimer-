@@ -7,7 +7,7 @@ module.exports = class Station {
         this.stationName = stationName || id;
         this.status = status || StationStatus.DEFAULT;
         this.consoleOptions = consoleOptions || [];
-        this.playerName = playerName;
+        this.playerName = playerName || '';
         this.currentConsole = currentConsole || '';
         this.currentGame = currentGame || '';
     }

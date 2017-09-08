@@ -21,7 +21,20 @@ function getStations() {
     return stations.values();
 }
 
+function updateFields(updateFieldData) {
+    if (updateFieldData) {
+        let station = stations.get(updateFieldData.id);
+        if (station) {
+            station.playerName = updateFieldData.playerName;
+            station.currentConsole = updateFieldData.currentConsole;
+            station.currentGame = updateFieldData.currentGame;
+            stations.set(station.id, station);
+        }
+    }
+}
+
 module.exports = {
     init,
-    getStations
+    getStations,
+    updateFields
 };

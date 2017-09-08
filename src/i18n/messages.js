@@ -7,6 +7,13 @@ export default {
             index: 'Main Page',
             waitlist: 'Waitlist'
         },
+        forms: {
+            actions: {
+                submit: "Submit",
+                reset: "Reset",
+                cancel: "Cancel"
+            }
+        },
         socket: {
             status: {
                 label: 'Socket Status:',

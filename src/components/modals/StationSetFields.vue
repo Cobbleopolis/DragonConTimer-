@@ -1,7 +1,11 @@
 <template>
-    <b-modal :id="'set-fields-' + station.id" ref="setFields"
-             :title="$t('stations.setFields.title', {stationName: station.stationName})">
-        <b-form @submit.stop.prevent="onSubmit">
+    <b-form @submit="handleSubmit">
+        <b-modal :id="'set-fields-' + station.id" ref="setFields"
+                 :title="$t('stations.setFields.title', {stationName: station.stationName})"
+                 size="lg"
+                 @shown="onShow"
+                 @ok="handleOk">
+
             <b-form-group id="playerNameInputGroup"
                           label-for="playerNameInput"
                           :label="$t('stations.setFields.playerName.label')"
@@ -28,8 +32,12 @@
                               :placeholder="$t('stations.setFields.currentGame.placeholder')"
                               v-model="currentGame"></b-form-input>
             </b-form-group>
-        </b-form>
-    </b-modal>
+            <template slot="modal-footer">
+                <b-button @click="hide" variant="secondary">{{ $t('forms.actions.cancel') }}</b-button>
+                <b-button type="submit" variant="primary">{{ $t('forms.actions.submit') }}</b-button>
+            </template>
+        </b-modal>
+    </b-form>
 </template>
 
 <script>
@@ -51,13 +59,31 @@
         },
         methods: {
             show() {
+                this.onShow();
                 this.$refs.setFields.show();
+            },
+            onShow() {
+                this.playerName = this.station.playerName;
+                this.currentConsole = this.station.currentConsole;
+                this.currentGame = this.station.currentGame;
             },
             hide() {
                 this.$refs.setFields.hide();
             },
-            onSubmit() {
-
+            handleOk(e) {
+                e.cancel();
+                this.handleSubmit();
+            },
+            handleSubmit(e) {
+                if (e) e.preventDefault();
+                console.log('Updating fields!');
+                this.$socket.emit('update_station_fields', {
+                    id: this.station.id,
+                    playerName: this.playerName,
+                    currentConsole: this.currentConsole,
+                    currentGame: this.currentGame
+                });
+                this.hide();
             }
         }
     };
