@@ -22,7 +22,7 @@
 </script>
 
 <style lang="sass">
-    @import 'styles/variables'
+    @import 'styles/main'
     @import '~bootstrap/scss/bootstrap'
     @import '~bootstrap-vue/dist/bootstrap-vue'
 
