@@ -24,7 +24,8 @@ export default {
         stations: {
             actions: {
                 title: 'Actions',
-                setFields: 'Set Fields'
+                setFields: 'Set Fields',
+                randomizeTime: 'Randomize Time'
             },
             fields: {
                 playerName: {

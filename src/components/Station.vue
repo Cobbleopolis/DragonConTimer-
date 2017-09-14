@@ -1,8 +1,17 @@
 <template>
     <b-card :header="station.stationName" header-tag="h6" class="mb-3" :border-variant="borderVariant"
             :header-border-variant="borderVariant">
-        <p class="card-text">{{ station }}</p>
-        <div class="">
+        <div class="container-fluid">
+            <div class="row mb-1">
+                <div class="col-12">
+                    <p class="card-text">{{ station }}</p>
+                </div>
+            </div>
+            <div class="row mb-4">
+                <div class="col-12">
+                    <b-progress :max="max" :value="currentTime" show-value class="mb-3"></b-progress>
+                </div>
+            </div>
             <b-form inline class="row justify-content-between">
                 <b-form-group id="playerNameInputGroup"
                               class="col-auto"
@@ -36,7 +45,11 @@
                 </b-form-group>
                 <div class="col-auto">
                     <b-dropdown :text="$t('stations.actions.title')" class="float-right" variant="primary">
-                        <b-dropdown-item-button @click="showSetFields">{{ $t('stations.actions.setFields') }}
+                        <b-dropdown-item-button @click="showSetFields">
+                            {{ $t('stations.actions.setFields') }}
+                        </b-dropdown-item-button>
+                        <b-dropdown-item-button @click="randomizeCurrentTime">
+                            {{ $t('stations.actions.randomizeTime') }}
                         </b-dropdown-item-button>
                     </b-dropdown>
                 </div>
@@ -53,6 +66,13 @@
         components: {StationSetFields},
         name: 'station',
         props: ['station'],
+        data() {
+            const MAX_TIME = 3600000
+            return {
+                max: MAX_TIME,
+                currentTime: Math.random() * MAX_TIME | 0
+            }
+        },
         computed: {
             borderVariant() {
                 switch (this.station.status) {
@@ -68,6 +88,9 @@
         methods: {
             showSetFields() {
                 this.$refs.setFieldsModal.show();
+            },
+            randomizeCurrentTime() {
+                this.currentTime = Math.random() * this.max | 0
             }
         }
     };

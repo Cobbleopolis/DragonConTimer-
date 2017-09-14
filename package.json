@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "body-parser": "~1.17.1",
+    "bootstrap": "4.0.0-beta",
     "bootstrap-vue": "^1.0.0-beta.7",
     "config": "^1.26.2",
     "cookie-parser": "~1.4.3",
