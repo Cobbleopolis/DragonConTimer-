@@ -3,7 +3,9 @@
         <navbar></navbar>
         <b-container tag="main">
             <socket-status></socket-status>
-            <router-view></router-view>
+            <transition name="fade">
+                <router-view></router-view>
+            </transition>
         </b-container>
     </div>
 </template>
@@ -28,4 +30,14 @@
 
     main
         margin-top: $navbar-brand-height + ($navbar-padding-y * 2) + .5rem
+
+    .fade-enter-active, .fade-leave-active
+        transition-property: opacity
+        transition-duration: .25s
+
+    .fade-enter-active
+        transition-delay: .25s
+
+    .fade-enter, .fade-leave-active
+        opacity: 0
 </style>
