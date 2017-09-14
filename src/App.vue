@@ -3,9 +3,7 @@
         <navbar></navbar>
         <b-container tag="main">
             <socket-status></socket-status>
-            <transition name="fade">
-                <router-view></router-view>
-            </transition>
+            <router-view></router-view>
         </b-container>
     </div>
 </template>
@@ -25,19 +23,7 @@
 
 <style lang="sass">
     @import 'styles/main'
-    @import '~bootstrap/scss/bootstrap'
-    @import '~bootstrap-vue/dist/bootstrap-vue'
 
     main
         margin-top: $navbar-brand-height + ($navbar-padding-y * 2) + .5rem
-
-    .fade-enter-active, .fade-leave-active
-        transition-property: opacity
-        transition-duration: .25s
-
-    .fade-enter-active
-        transition-delay: .25s
-
-    .fade-enter, .fade-leave-active
-        opacity: 0
 </style>
